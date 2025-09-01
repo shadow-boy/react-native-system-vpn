@@ -1,8 +1,9 @@
 {
   "name": "react-native-system-vpn",
   "version": "0.1.0",
-  "description": "android and ios system buildin vpn bridge module",
+  "description": "React Native System VPN module for IPSec and IKEv2 VPN connections on Android and iOS",
   "main": "./lib/module/index.js",
+  "private": true,
   "types": "./lib/typescript/src/index.d.ts",
   "exports": {
     ".": {
@@ -37,13 +38,19 @@
     "typecheck": "tsc",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
-    "prepare": "bob build",
+    "prepare": "node scripts/prepare-build.js",
     "release": "release-it --only-version"
   },
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "vpn",
+    "ipsec",
+    "ikev2",
+    "network-extension",
+    "system-vpn",
+    "strongswan"
   ],
   "repository": {
     "type": "git",
@@ -97,11 +104,6 @@
     "modulePathIgnorePatterns": [
       "<rootDir>/example/node_modules",
       "<rootDir>/lib/"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
     ]
   },
   "release-it": {
